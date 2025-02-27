@@ -28,7 +28,7 @@ class LoyaltyAPI < Sinatra::Base
     halt 404, { status: "error", message: "User not found" }.to_json unless user
 
     operation_id = params[:operation_id]
-    write_off = params[:write_o].to_f
+    write_off = params[:write_off].to_f
 
     result = ConfirmOperationService.confirm(user, operation_id, write_off)
 
