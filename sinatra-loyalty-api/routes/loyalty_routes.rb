@@ -20,7 +20,7 @@ class LoyaltyAPI < Sinatra::Base
     result.to_json
   end
 
-  post '/confirm' do
+  post '/submit' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
 
