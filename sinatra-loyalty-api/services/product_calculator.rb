@@ -5,27 +5,31 @@ class ProductCalculator
     cashback = 0
     discount_percent = 0
     cashback_percent = 0
-    description = ''
+    value = nil
+    description = nil
 
     case product.type
     when 'discount'
-      discount = (subtotal * template.discount.to_f / 100.0).round(2)
       discount_percent = template.discount.to_f
-      description = 'Additional discount'
+      discount = (subtotal * discount_percent / 100.0).round(2)
+      value = "#{discount_percent}%"
+      description = "Дополнительная скидка #{value}"
     when 'increased_cashback'
-      cashback = (subtotal * template.cashback.to_f / 100.0).round(2)
       cashback_percent = template.cashback.to_f
-      description = 'Additional cashback'
+      cashback = (subtotal * cashback_percent / 100.0).round(2)
+      value = "#{cashback_percent}%"
+      description = "Дополнительный кэшбек #{value}"
     when 'noloyalty'
-      description = 'Product is not part of the loyalty program'
+      description = "Не участвует в системе лояльности"
     end
 
-    { 
+    {
       subtotal: subtotal,
       discount: discount,
       cashback: cashback,
       discount_percent: discount_percent,
       cashback_percent: cashback_percent,
+      value: value,
       description: description
     }
   end
