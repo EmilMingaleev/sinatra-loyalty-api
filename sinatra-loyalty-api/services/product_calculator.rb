@@ -13,14 +13,14 @@ class ProductCalculator
       discount_percent = template.discount.to_f
       discount = (subtotal * discount_percent / 100.0).round(2)
       value = "#{discount_percent}%"
-      description = "Дополнительная скидка #{value}"
+      description = I18n.t('product.discount', value: value)
     when 'increased_cashback'
       cashback_percent = template.cashback.to_f
       cashback = (subtotal * cashback_percent / 100.0).round(2)
       value = "#{cashback_percent}%"
-      description = "Дополнительный кэшбек #{value}"
+      description = I18n.t('product.cashback', value: value)
     when 'noloyalty'
-      description = "Не участвует в системе лояльности"
+      description = I18n.t('product.noloyalty')
     end
 
     {

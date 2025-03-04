@@ -1,0 +1,10 @@
+en:
+  confirm_operation:
+    success: "Data successfully processed!"
+  operation:
+    not_found: "Operation not found!"
+    already_done: "Operation already completed!"
+  product:
+    discount: "Additional discount %{value}"
+    cashback: "Additional cashback %{value}"
+    noloyalty: "Does not participate in the loyalty system"

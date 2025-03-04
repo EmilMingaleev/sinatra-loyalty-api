@@ -12,7 +12,7 @@ class ConfirmOperationService
 
     {
       status: 200,
-      message: "Данные успешно обработаны!",
+      message: I18n.t('confirm_operation.success'),
       operation: {
         user_id: user.id,
         cashback: new_cashback,
