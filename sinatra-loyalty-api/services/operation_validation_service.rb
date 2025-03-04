@@ -6,4 +6,3 @@ class OperationValidationService
         operation
     end
 end
-  
