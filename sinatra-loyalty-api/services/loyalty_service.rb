@@ -47,15 +47,24 @@ class LoyaltyService
       operation = Operation.create(
         user_id: user.id,
         check_summ: total_sum,
-        cashback: 0.0,
-        cashback_percent: 0.0,
-        discount: 0.0,
-        discount_percent: 0.0,
+        cashback: total_cashback,
+        cashback_percent: (total_cashback / total_sum * 100).round(2),
+        discount: total_discount,
+        discount_percent: (total_discount / total_sum * 100).round(2),
+        write_off: 0.0,
         done: false
       )
       operation_id = operation.id
+    else
+      operation = Operation[operation_id]
+      operation.update(
+        check_summ: total_sum,
+        cashback: total_cashback,
+        cashback_percent: (total_cashback / total_sum * 100).round(2),
+        discount: total_discount,
+        discount_percent: (total_discount / total_sum * 100).round(2)
+      )
     end
-    
 
     discount_value = total_sum.zero? ? 0.0 : ((total_discount / total_sum) * 100).round(2)
     cashback_value = total_sum.zero? ? 0.0 : ((total_cashback / total_sum) * 100).round(2)
