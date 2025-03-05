@@ -1,10 +1,13 @@
 en:
+  operation:
+    already_done: "Operation already completed!"
+    not_found: "Operation not found!"
+  product:
+    cashback: "Additional cashback %{value}"
+    discount: "Additional discount %{value}"
+    noloyalty: "Does not participate in the loyalty system"
+    standard: "Standard loyalty rules"
   confirm_operation:
     success: "Data successfully processed!"
-  operation:
-    not_found: "Operation not found!"
-    already_done: "Operation already completed!"
-  product:
-    discount: "Additional discount %{value}"
-    cashback: "Additional cashback %{value}"
-    noloyalty: "Does not participate in the loyalty system"
+  errors:
+    user_not_found: "User not found!"

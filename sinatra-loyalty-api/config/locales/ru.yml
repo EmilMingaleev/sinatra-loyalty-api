@@ -6,6 +6,7 @@ ru:
     cashback: "Дополнительный кэшбек %{value}"
     discount: "Дополнительная скидка %{value}"
     noloyalty: "Не участвует в системе лояльности"
+    standard: "Стандартные правила лояльности"
   confirm_operation:
     success: "Данные успешно обработаны!"
   errors:

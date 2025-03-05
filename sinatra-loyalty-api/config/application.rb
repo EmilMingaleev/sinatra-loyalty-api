@@ -4,7 +4,9 @@ require 'json'
 require 'i18n'
 
 require_relative '../config/database'
-I18n.load_path += Dir[File.join(File.dirname(__FILE__), 'locales', '*.yml')]
+require_relative '../routes/loyalty_routes'
+
+I18n.load_path += Dir[File.expand_path('../config/locales/*.yml', __dir__)]
 I18n.default_locale = :ru
 
 

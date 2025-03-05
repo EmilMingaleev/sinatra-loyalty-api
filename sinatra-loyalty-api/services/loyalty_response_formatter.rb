@@ -6,7 +6,7 @@ class LoyaltyResponseFormatter
         id: user.id,
         template_id: user.template_id,
         name: user.name,
-        bonus: user.bonus.to_f
+        bonus: user.bonus.to_f.round(2)
       },
       operation_id: operation_id,
       summ: total_sum.round(2),
@@ -16,7 +16,7 @@ class LoyaltyResponseFormatter
         value: "#{discount_value}%"
       },
       cashback: {
-        existed_summ: user.bonus.to_f,
+        existed_summ: user.bonus.to_f.round(2),
         allowed_summ: total_available_write_off.round(2),
         value: "#{cashback_value}%",
         will_add: total_cashback.round(2)
