@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - test
+  pull_request:
+    branches:
+      - main
+      - test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Клонирование репозитория
+        uses: actions/checkout@v4
+
+      - name: Установка Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+          bundler-cache: true
+
+      - name: Установка SQLite
+        run: sudo apt-get install -y sqlite3 libsqlite3-dev
+
+      - name: Создание тестовой базы данных
+        run: |
+          sqlite3 test.db "PRAGMA journal_mode = WAL;"
+
+      - name: Запуск тестов
+        run: bundle exec rspec --format documentation
