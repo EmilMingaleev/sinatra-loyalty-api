@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class LoyaltyResponseFormatter
-  def self.format(user, operation_id, total_sum, total_available_write_off, total_cashback, total_discount, discount_details, template, discount_value, cashback_value)
+  def self.format(user, operation_id, total_sum, total_available_write_off, total_cashback, total_discount, discount_details, _template, discount_value, cashback_value)
     {
       status: 200,
       user: {

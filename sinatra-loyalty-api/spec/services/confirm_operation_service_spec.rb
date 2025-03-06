@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe ConfirmOperationService do
-
   before(:all) do
     I18n.locale = :ru
   end
-  
+
   let(:user) { User.new(name: 'Иван', template_id: 1, bonus: 100.0).save }
   let(:template) { Template.new(name: 'Silver', discount: 10.0, cashback: 5.0).save }
   let(:operation) do
@@ -36,7 +37,7 @@ RSpec.describe ConfirmOperationService do
     it 'возвращает ошибку, если операция не найдена' do
       result = ConfirmOperationService.confirm(user, 999, 150.0)
 
-      expect(result[:status]).to eq("error")
+      expect(result[:status]).to eq('error')
       expect(result[:message]).to eq(I18n.t('operation.not_found'))
     end
 
@@ -44,7 +45,7 @@ RSpec.describe ConfirmOperationService do
       operation.update(done: true)
       result = ConfirmOperationService.confirm(user, operation.id, 150.0)
 
-      expect(result[:status]).to eq("error")
+      expect(result[:status]).to eq('error')
       expect(result[:message]).to eq(I18n.t('operation.already_done'))
     end
   end

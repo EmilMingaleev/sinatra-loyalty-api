@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductCalculator
   def self.calculate(product, pos, template)
     subtotal = pos[:price] * pos[:quantity]
