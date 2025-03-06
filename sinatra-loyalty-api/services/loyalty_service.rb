@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LoyaltyService
   def self.calculate(user, positions, operation_id = nil)
     template = Template[user.template_id]
@@ -69,6 +71,7 @@ class LoyaltyService
     discount_value = total_sum.zero? ? 0.0 : ((total_discount / total_sum) * 100).round(2)
     cashback_value = total_sum.zero? ? 0.0 : ((total_cashback / total_sum) * 100).round(2)
 
-    LoyaltyResponseFormatter.format(user, operation_id, total_sum, total_available_write_off, total_cashback, total_discount, discount_details, template, discount_value, cashback_value)
+    LoyaltyResponseFormatter.format(user, operation_id, total_sum, total_available_write_off, total_cashback,
+                                    total_discount, discount_details, template, discount_value, cashback_value)
   end
 end

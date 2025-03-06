@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OperationUpdateService
   def self.update(operation, write_off, new_total, new_cashback)
     operation.update(

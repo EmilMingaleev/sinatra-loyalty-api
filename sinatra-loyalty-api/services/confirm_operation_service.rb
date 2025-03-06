@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConfirmOperationService
   def self.confirm(user, operation_id, write_off)
     operation = OperationValidationService.validate(operation_id)

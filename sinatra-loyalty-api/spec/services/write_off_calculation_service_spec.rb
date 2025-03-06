@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe WriteOffCalculationService do
@@ -10,7 +12,7 @@ RSpec.describe WriteOffCalculationService do
       discount: 100.0,
       discount_percent: 10.0,
       write_off: 0.0,
-      allowed_write_off: 200.0, 
+      allowed_write_off: 200.0,
       done: false
     )
   end

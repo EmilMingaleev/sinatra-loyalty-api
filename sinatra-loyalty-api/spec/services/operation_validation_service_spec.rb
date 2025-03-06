@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe OperationValidationService do
@@ -22,14 +24,14 @@ RSpec.describe OperationValidationService do
 
     it 'возвращает ошибку, если операция не найдена' do
       result = OperationValidationService.validate(999)
-      expect(result[:status]).to eq("error")
+      expect(result[:status]).to eq('error')
       expect(result[:message]).to eq(I18n.t('operation.not_found'))
     end
 
     it 'возвращает ошибку, если операция уже выполнена' do
       operation.update(done: true)
       result = OperationValidationService.validate(operation.id)
-      expect(result[:status]).to eq("error")
+      expect(result[:status]).to eq('error')
       expect(result[:message]).to eq(I18n.t('operation.already_done'))
     end
   end
